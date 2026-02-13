@@ -25,11 +25,11 @@ def home():
         </style>
     </head>
     <body>
-        <h1>🔐 Server Educational Cybersecurity</h1>
+        <h1> Server Educational Cybersecurity</h1>
         <p>Server rulează pe: <strong>http://localhost:5000</strong></p>
         
         <div class="warning">
-            <h3>⚠️ ATENȚIE: SIMULARE EDUCAȚIONALĂ</h3>
+            <h3 ATENȚIE: SIMULARE EDUCAȚIONALĂ</h3>
             <p>Acest server este pentru învățarea tehnologiilor web.</p>
             <p><strong>Folosește DOAR date false pentru test:</strong></p>
             <ul>
@@ -68,7 +68,7 @@ def home():
             const domain = email.split('@')[1];
             
             if (domain && realDomains.includes(domain.toLowerCase())) {
-                if (!confirm('⚠️ Ai introdus un domeniu real (' + domain + ').\\n\\nFolosește doar date false pentru test!\\nEx: test@example.com\\n\\nContinui?')) {
+                if (!confirm(' Ai introdus un domeniu real (' + domain + ').\\n\\nFolosește doar date false pentru test!\\nEx: test@example.com\\n\\nContinui?')) {
                     return;
                 }
             }
