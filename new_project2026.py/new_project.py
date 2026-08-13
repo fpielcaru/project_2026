@@ -90,14 +90,14 @@ def home():
                 const result = await response.json();
                 
                 document.getElementById('result').innerHTML = `
-                    <h4>✅ Date trimise cu succes!</h4>
+                    <h4> Date trimise cu succes!</h4>
                     <p><strong>Status:</strong> ${result.status}</p>
                     <p><strong>Mesaj:</strong> ${result.message}</p>
                     <p><strong>Timestamp:</strong> ${result.timestamp}</p>
                     <p><strong>Total înregistrări:</strong> ${result.total_records}</p>
                     <p><strong>Date trimise:</strong></p>
                     <pre>${JSON.stringify(data, null, 2)}</pre>
-                    <p><a href="/view-data" target="_blank">👉 Vezi toate datele primite</a></p>
+                    <p><a href="/view-data" target="_blank"> Vezi toate datele primite</a></p>
                 `;
                 document.getElementById('result').style.display = 'block';
                 
@@ -105,12 +105,12 @@ def home():
                 document.getElementById('email').value = '';
                 document.getElementById('password').value = '';
                 
-                console.log('📊 Date trimise:', data);
-                console.log('📥 Răspuns server:', result);
+                console.log(' Date trimise:', data);
+                console.log(' Răspuns server:', result);
                 
             } catch (error) {
                 document.getElementById('result').innerHTML = `
-                    <h4>❌ Eroare la trimitere</h4>
+                    <h4> Eroare la trimitere</h4>
                     <p>${error.message}</p>
                     <p>Verifică dacă serverul rulează.</p>
                 `;
@@ -119,7 +119,7 @@ def home():
         });
         
         // Mesaj în consolă
-        console.log('%c🔐 SERVER EDUCAȚIONAL CYBERSECURITY', 'color: blue; font-size: 16px; font-weight: bold;');
+        console.log('%c SERVER EDUCAȚIONAL CYBERSECURITY', 'color: blue; font-size: 16px; font-weight: bold;');
         console.log('Acest server rulează local pentru învățare.');
         console.log('Folosește DOAR date false pentru test!');
         </script>
@@ -149,7 +149,7 @@ def collect_data():
         
         # Afișează în terminal (pentru vizibilitate)
         print(f"\n{'='*50}")
-        print(f"📥 DATE PRIMITE ({len(received_data)})")
+        print(f" DATE PRIMITE ({len(received_data)})")
         print(f"IP: {record['ip_address']}")
         print(f"Timp: {record['timestamp']}")
         if 'email' in data:
@@ -168,7 +168,7 @@ def collect_data():
         }), 200
         
     except Exception as e:
-        print(f"❌ Eroare: {e}")
+        print(f" Eroare: {e}")
         return jsonify({"error": str(e)}), 500
 
 @app.route('/view-data')
@@ -188,9 +188,9 @@ def view_data():
         </style>
     </head>
     <body>
-        <h1>📊 Date primite - Server Educational</h1>
+        <h1> Date primite - Server Educational</h1>
         <div class="warning">
-            <h3>⚠️ SIMULARE EDUCAȚIONALĂ</h3>
+            <h3> SIMULARE EDUCAȚIONALĂ</h3>
             <p>Aceste date sunt pentru învățarea tehnologiei web.</p>
             <p><strong>Nu sunt date reale!</strong> Toate datele sunt stocate doar în memorie.</p>
         </div>
@@ -213,10 +213,10 @@ def view_data():
             html += f'''
             <div class="record">
                 <h3>Înregistrare #{len(received_data) - i + 1}</h3>
-                <p><strong>📅 Timp:</strong> {record['timestamp']}</p>
-                <p><strong>🌐 IP:</strong> {record['ip_address']}</p>
-                <p><strong>🖥️ Browser:</strong> {record['user_agent'][:80]}...</p>
-                <p><strong>📝 Date trimise:</strong></p>
+                <p><strong> Timp:</strong> {record['timestamp']}</p>
+                <p><strong> IP:</strong> {record['ip_address']}</p>
+                <p><strong> Browser:</strong> {record['user_agent'][:80]}...</p>
+                <p><strong> Date trimise:</strong></p>
                 <pre>{json.dumps(display_data, indent=2, ensure_ascii=False)}</pre>
             </div>
             <hr>
@@ -245,7 +245,7 @@ def stats():
         "server_running_since": datetime.datetime.now().isoformat(),
         "total_requests": len(received_data),
         "unique_ips": len(set(r['ip_address'] for r in received_data)) if received_data else 0,
-        "requests_per_minute": "N/A",  # Simplificat
+        "requests_per_minute": "N/A",
         "memory_usage": f"{len(str(received_data))} bytes"
     }
     
@@ -284,20 +284,20 @@ def clear_data():
 
 if __name__ == '__main__':
     print("\n" + "="*60)
-    print("🚀 SERVER EDUCAȚIONAL CYBERSECURITY")
+    print(" SERVER EDUCAȚIONAL CYBERSECURITY")
     print("="*60)
-    print("\n📋 ACCESEAZĂ ÎN BROWSER:")
+    print("\n ACCESEAZĂ ÎN BROWSER:")
     print("   • http://localhost:5000")
     print("   • http://127.0.0.1:5000")
-    print("\n🔐 SCOPE EDUCAȚIONAL:")
+    print("\n SCOPE EDUCAȚIONAL:")
     print("   • Înțelegerea fluxului de date client-server")
     print("   • Cum funcționează formularele web")
     print("   • Protejarea datelor personale")
-    print("\n⚠️ ATENȚIE:")
+    print("\n ATENȚIE:")
     print("   • Folosește DOAR date false pentru test!")
     print("   • Serverul rulează DOAR local")
     print("   • Datele se pierd la oprirea serverului")
-    print("\n🛑 OPREȘTE SERVERUL: Ctrl+C")
+    print("\n OPREȘTE SERVERUL: Ctrl+C")
     print("="*60 + "\n")
     
     app.run(debug=True, host='127.0.0.1', port=5000)
